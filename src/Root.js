@@ -4,7 +4,7 @@ style.innerHTML = `
     background-color: blue;
   }
 `;
-document.head.appendChild(style);
+document.body.appendChild(style);
 
 class Root extends HTMLElement{
   constructor(){
