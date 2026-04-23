@@ -3,14 +3,14 @@
 }
 
 class Root extends HTMLElement{
-  this.innerHTML = `
-    <div class="header">
-      Initial header class
-    </div>
-  `;
-  
   constructor(){
     super();
+
+    this.innerHTML = `
+      <div class="header">
+        Initial header class
+      </div>
+    `;
   }
 }
 customElements.define('root', Root);
