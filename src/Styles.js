@@ -1,6 +1,6 @@
-const styleNode = document.querySelector(style);
+const styleNode = document.createElement('style');
 document.head.appendChild(styleNode);
 
 export const AddStyle = (css) => {
-  styleNode.textContent += css;
+    style.textContent += css;
 };
