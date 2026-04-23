@@ -18,4 +18,4 @@ class Root extends HTMLElement{
     console.log("after html");
   }
 }
-customElements.define('root', Root);
+customElements.define('agario-root', Root);
