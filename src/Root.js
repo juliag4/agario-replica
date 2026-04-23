@@ -1,6 +1,6 @@
 import {AddStyle} from 'Styles.js';
 
-AddStyle(*/css*/'
+AddStyle('
   .circle-root .header{
     color: blue;
     font-size: 50px;
