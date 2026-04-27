@@ -16,12 +16,13 @@ AddStyle(`
         background-color: lightblue;
         border: 2px solid black;
         object-fit: contain;
+        width: 500px;
+        height: 500px;
     }
 `);
 
 class Game extends HTMLElement{
-    constructor(){
-        super();
+    connectedCallback(){
         this.innerHTML = `
             <canvas></canvas>
         `;
