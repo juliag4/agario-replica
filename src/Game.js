@@ -14,10 +14,7 @@ AddStyle(`
 
     canvas{
         background-color: lightblue;
-        border: 2px solid black;
         object-fit: contain;
-        width: 500px;
-        height: 500px;
     }
 `);
 
@@ -28,8 +25,8 @@ class Game extends HTMLElement{
         `;
         
         this.canvas = this.querySelector('canvas');
-        this.canvas.width = '500';
-        this.canvas.height = '500';
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
         this.ctx = this.canvas.getContext('2d');
         
         this.mousePos = {x: 45, y: 230};
@@ -43,14 +40,20 @@ class Game extends HTMLElement{
         
         // Redraws the circle every 1000 seconds if the player does not run into the map boundaries
         const drawInterval = setInterval(() => {
-            const playerAlive = this.circlePos.x <= 460 && this.circlePos.x >= 40 &&
-                            this.circlePos.y <= 460 && this.circlePos.y >= 40;
+            const playerAlive = this.circlePos.x <= (window.innerWidth - 40) && this.circlePos.x >= 40 &&
+                            this.circlePos.y <= (window.innerHeight - 40) && this.circlePos.y >= 40;
             if(playerAlive){ this.redraw(); }
             else{
                 clearInterval(drawInterval);
                 location.href = location.href.replace('game.html', '');
             }
-       }, 1000);
+       }, 30);
+        
+       // figure out how to switch to request animation frame,
+       // where inside the function it checks if a certain time has
+       // passed.
+       // also maybe set canvas to fixed height/width again
+       // once the actual map creation is done
     };
     
     redraw(){
@@ -71,7 +74,7 @@ class Game extends HTMLElement{
         const xDiff = this.mousePos.x - this.circlePos.x;
         const yDiff = this.mousePos.y - this.circlePos.y;
         
-        const maxSpeed = 20;
+        const maxSpeed = 3;
         
         const changeX = xDiff <= 0 ? Math.max(xDiff, -maxSpeed) : Math.min(xDiff, maxSpeed);
         const changeY = yDiff <= 0 ? Math.max(yDiff, -maxSpeed) : Math.min(yDiff, maxSpeed);
