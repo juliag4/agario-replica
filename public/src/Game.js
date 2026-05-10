@@ -20,7 +20,7 @@ AddStyle(`
     }
 `);
 
-class Game extends HTMLElement{
+export default class Game extends HTMLElement{
     connectedCallback(){
         this.innerHTML = `
             <canvas></canvas>

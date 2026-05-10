@@ -7,14 +7,19 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+const GameState = require('./public/src/GameState.js');
+
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Start server
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
+let room = '';
+let game = null;
+
 // Handle a socket connection request from web client
-const connections = [null, null, null, null, null];
+const connections = [null, null, null, null, null, null, null, null];
 io.on('connection', socket => {
     // Find an available player number
     let playerIndex = -1;
@@ -29,11 +34,18 @@ io.on('connection', socket => {
     socket.emit('player-number', playerIndex);
     console.log(`Player ${playerIndex} has connected`);
     
-    // Ignore player 6
     if(playerIndex === -1){ return; }
     
     connections[playerIndex] = true;
     
     // Tell everyone what player number has connected
     socket.broadcast.emit('player-connection', playerIndex);
+    
+    socket.on('join', (roomId) => {
+        socket.join('Room 1');
+        if(!game){
+            game = new GameState();
+        }
+    });
+    
 });

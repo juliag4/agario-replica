@@ -1,4 +1,5 @@
 import {AddStyle} from './Styles.js';
+import Game from './Game.js'
 
 AddStyle(`
     circle-root{
@@ -92,9 +93,9 @@ class Root extends HTMLElement{
             
             // Another player has connected or disconnected
             socket.on('player-connection', num => {
+                socket.emit('join', 'Room 1');
                 console.log(`Player number ${num} has connected or disconnected`);
             });
-            location.href += 'game.html';
         });
         
     };
