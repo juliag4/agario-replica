@@ -46,6 +46,10 @@ io.on('connection', socket => {
         if(!game){
             game = new GameState();
         }
+        game.addPlayer(socket.id);
     });
-    
 });
+
+setInterval(() => {
+  io.emit('state', game);
+}, 1000);

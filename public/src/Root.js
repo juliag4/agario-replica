@@ -96,6 +96,10 @@ class Root extends HTMLElement{
                 socket.emit('join', 'Room 1');
                 console.log(`Player number ${num} has connected or disconnected`);
             });
+            
+            socket.on('state', game => {
+               console.log(game);
+            });
         });
         
     };
