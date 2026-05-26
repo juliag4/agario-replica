@@ -2,7 +2,7 @@ import {AddStyle} from './Styles.js';
 import Game from './Game.js'
 
 AddStyle(`
-    circle-root{
+    orb-root{
         display: flex;
         width: 100vw;
         height: 100vh;
@@ -10,7 +10,7 @@ AddStyle(`
         font-family: sans-serif;
     }
 
-    circle-root .name-input-view{
+    orb-root .name-input-view{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -19,7 +19,7 @@ AddStyle(`
         height: 100%;
     }
 
-    circle-root .header{
+    orb-root .header{
         display: flex;
         color: steelblue;
         font-size: 50px;
@@ -28,26 +28,26 @@ AddStyle(`
         top: 0;
     }
 
-    circle-root .input-button-container{
+    orb-root .input-button-container{
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 40px;
     }
 
-    circle-root .input-button{
+    orb-root .input-button{
         padding: 5px;
         border: 1px solid black;
         border-radius: 3px;
         font-size: 18px;
     }
 
-    circle-root .username{
+    orb-root .username{
         display: flex;
         background-color: lightgrey;
     }
 
-    circle-root .single-play, circle-root .multi-play{
+    orb-root .single-player, orb-root .multiplayer{
         display: flex;
         justify-content: center;
         width: 80%;
@@ -56,7 +56,7 @@ AddStyle(`
         cursor: pointer;
     }
 
-    circle-root .single-play:hover, .multi-play:hover{
+    orb-root .single-player:hover, .multiplayer:hover{
         filter: brightness(0.7);
     }
 `);
@@ -66,18 +66,18 @@ class Root extends HTMLElement{
         super();
         this.innerHTML = `
             <div class="name-input-view">
-                <div class="header">Circles</div>
+                <div class="header">OrbBites</div>
                 <div class="input-button-container">
                     <input class="username input-button" placeholder="Name" spellcheck="false"></input>
                     <button class="single-player input-button">Single Player Mode</button>
-                    <button class="multi-player input-button">Multi Player Mode</button>
+                    <button class="multiplayer input-button">Multi Player Mode</button>
                 </div>
             </div>
         `;
         
         this.querySelector('.single-player').addEventListener('click', () => location.href += 'game.html');
         
-        this.querySelector('.multi-player').addEventListener('click', () => {
+        this.querySelector('.multiplayer').addEventListener('click', () => {
             let gameMode = 'multiPlayer';
             let playerNum = 0;
             const socket = io();
@@ -106,4 +106,4 @@ class Root extends HTMLElement{
         
     };
 };
-customElements.define('circle-root', Root);
+customElements.define('orb-root', Root);

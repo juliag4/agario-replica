@@ -1,5 +1,5 @@
-# circles
+# OrbBites
 
-My attempt at creating a replica of Agar.io in HTML, CSS, and JS. Currently at the very beginning of development.
+Inspired by  Agar.io, Slither.io. With single player, one can move the circle around the map. Multi player not in working condition. Currently at the beginning of development. Created with HTML, CSS, JS. 
 
-Ignore all the commits please. Most of them were inital setup with very minimal changes in code. 
+Ignore most of these commits. Most of them were inital setup with minimal changes in code. 

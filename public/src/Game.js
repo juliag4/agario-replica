@@ -7,7 +7,7 @@ AddStyle(`
         margin: 0;
     }
 
-    circle-game{
+    orb-game{
         display: flex;
         font-family: sans-serif;
         width: 100vw;
@@ -130,4 +130,4 @@ export default class Game extends HTMLElement{
         this.ctx.closePath();
     };
 };
-customElements.define('circle-game', Game);
+customElements.define('orb-game', Game);
