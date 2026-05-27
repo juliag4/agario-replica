@@ -1,7 +1,7 @@
 {
   "name": "circles",
   "version": "1.0.0",
-  "description": "Multiplayer circle game.",
+  "description": "Multiplayer orb game.",
   "main": "server.js",
   "scripts": {
     "start": "node server",
@@ -9,16 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/juliag4/circles.git"
+    "url": "git+https://github.com/juliag4/orbbites.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/juliag4/circles/issues"
+    "url": "https://github.com/juliag4/orbbites/issues"
   },
-  "homepage": "https://github.com/juliag4/circles#readme",
+  "homepage": "https://github.com/juliag4/orbbites#readme",
   "dependencies": {
     "express": "^5.2.1",
     "socket.io": "^4.8.3"
