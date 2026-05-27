@@ -75,7 +75,7 @@ class Root extends HTMLElement{
             </div>
         `;
         
-        this.querySelector('.single-player').addEventListener('click', () => location.href += 'game.html');
+        this.querySelector('.single-player').addEventListener('click', () => location.href += '/game.html');
         
         this.querySelector('.multiplayer').addEventListener('click', () => {
             let gameMode = 'multiPlayer';
